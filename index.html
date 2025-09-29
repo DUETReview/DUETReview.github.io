@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="DUET: Joint Exploration of User–Item Profiles">
+<meta name="keywords" content="Recommendation System, User Profile, Large Language Models">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DUET: Joint Exploration of User–Item Profiles</title>
+
+
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+<link rel="stylesheet" href="./static/css/bulma.min.css">
+<link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="./static/css/index.css">
+<link rel="icon" href="./static/images/ca2.png">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/bulma-slider.min.js"></script>
+<script src="./static/js/index.js"></script>
+
+
+<style>
+.tab-content figure { display: none; }
+.tab-content figure.is-active { display: block; }
+</style>
+</head>
+
+
+<body>
+<!-- Hero Section -->
+<section class="hero is-light">
+<div class="hero-body">
+<div class="container is-max-desktop">
+<div class="columns is-centered">
+<div class="column has-text-centered">
+<h1 class="title is-1 publication-title">DUET: Joint Exploration of User–Item Profiles</h1>
+<div class="is-size-5 publication-authors has-text-grey">
+<span class="author-block">Anonymous Authors</span>
+<br>
+<span class="is-size-6">Paper under double-blind review</span>
+</div>
+<div class="publication-links">
+<a href="./static/papers/paper.pdf" class="external-link button is-normal is-rounded is-dark">
+<span class="icon"><i class="fas fa-file-pdf"></i></span>
+<span>Paper</span>
+</a>
+<a href="#" class="external-link button is-normal is-rounded is-dark">
+<span class="icon"><i class="fab fa-github"></i></span>
+<span>Code (Coming Soon)</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Overview Section -->
+<section class="section">
+  <div class="container is-max-desktop box">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Overview</h2>
+        <hr>
+        <figure>
+          <img src="./static/images/teaser.png" width="80%"/>
+          <figcaption class="is-size-6 has-text-grey">Figure: Overview of DUET. Raw user histories and item metadata are transformed into textual profiles within a shared semantic space, enabling interpretability and alignment with large language models.</figcaption>
+        </figure>
+        <p class="content has-text-justified">
+          DUET aligns raw user and item data by transforming them into textual profiles within a shared semantic space. Traditional recommendation systems use hidden vectors, but we advocate a shift from vectors to text: representing users and items as textual profiles that are directly compatible with LLMs and offer interpretability for downstream agentic systems.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract Section -->
+<section class="section">
+  <div class="container is-max-desktop box">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <hr>
+        <div class="content has-text-justified">
+          <p>
+            Traditional recommendation systems represent users and items as hidden vectors, learning to align them in a shared latent space for relevance estimation. With the advent of large language models (LLMs), we advocate a shift from vectors to text: representing users and items as textual profiles and aligning them in a shared semantic space. Textual profiles are directly compatible with LLMs and offer interpretability for downstream agentic systems.
+          </p>
+          <p>
+            A key challenge, however, is that the optimal profile format is unknown, and handcrafted templates often misalign with task objectives. We propose DUET, a framework for joint exploration of user–item profile generation in text. The framework operates in three stages: First, raw histories and metadata are distilled into simple cues that capture minimal but informative signals. Second, during a single sequence-to-sequence inference pass, these cues are expanded into richer prompts and then into textual profiles, allowing for the exploration of multiple formats rather than a single creation.
+          </p>
+          <p>
+            Finally, profiles are optimized jointly via reinforcement learning, where downstream recommendation performance provides feedback to refine and align them. Experiments on three real-world datasets demonstrate that DUET outperforms strong baselines, validating the effectiveness of joint textual profile alignment and the utility of prompt-driven exploration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method Pipeline Section -->
+<section class="section">
+  <div class="container is-max-desktop box">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method: DUET Framework</h2>
+        <hr>
+        <figure>
+          <img src="./static/images/pipeline.png" width="80%"/>
+          <figcaption class="is-size-6 has-text-grey">Figure: The DUET framework operates in three stages: (1) Cue-based initialization, (2) Self-prompt construction in a single seq-to-seq pass, and (3) Joint optimization with reinforcement learning (GRPO) using downstream recommendation feedback.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experimental Results Section -->
+<section class="section">
+<div class="container is-max-desktop box">
+<div class="columns is-centered has-text-centered">
+<div class="column is-four-fifths">
+<h2 class="title is-3">Experimental Results</h2>
+
+
+<div class="tabs is-centered is-boxed" id="results-tabs">
+<ul>
+<li class="is-active" data-tab="main"><a>Main Results</a></li>
+<li data-tab="ablation"><a>Ablation Study</a></li>
+<li data-tab="history"><a>History Length</a></li>
+</ul>
+</div>
+
+
+<div class="tab-content">
+<figure id="tab-main" class="is-active">
+<img src="./static/images/main_results.png" width="100%"/>
+<figcaption class="is-size-6 has-text-grey">Figure: Performance comparison across Yelp, Amazon Music, and Amazon Books datasets using Qwen3-8B and LLaMA3-8B. DUET achieves the best accuracy (avg. 64.52%) and F1 score (60.80%), consistently outperforming strong baselines (see Table 1 in the paper).</figcaption>
+</figure>
+
+
+<figure id="tab-ablation">
+<img src="./static/images/ablation_study.png" width="100%"/>
+<figcaption class="is-size-6 has-text-grey">Figure: Ablation study showing the contribution of each DUET component. Profile alignment yields the largest performance gains (+5.4% on Yelp, +5.95% on Amazon Books, +9.05% on Amazon Music). See Table 2 for details.</figcaption>
+</figure>
+
+
+<figure id="tab-history">
+<img src="./static/images/history_length.png" width="100%"/>
+<figcaption class="is-size-6 has-text-grey">Figure: Impact of interaction history length (30, 50, 70 records). Longer histories do not always improve profile quality; results highlight the trade-off between semantic richness and noise (see Table 3).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Case Study Section -->
+<section class="section">
+  <div class="container is-max-desktop box">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Case Study: Profile Alignment in Action</h2>
+        <hr>
+        <figure>
+          <img src="./static/images/case_study.png" width="80%"/>
+          <figcaption class="is-size-6 has-text-grey">Figure: Case study of DUET profile alignment. User preferences (funk, soul, progressive rock, emphasis on technical mastery) semantically correspond to item attributes (funk-rock fusion, polished production, genre-blurring creativity), enabling improved prediction accuracy.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const tabs = document.querySelectorAll('#results-tabs li');
+const tabContents = document.querySelectorAll('.tab-content figure');
+
+
+tabs.forEach(tab => {
+tab.addEventListener('click', () => {
+const target = tab.getAttribute('data-tab');
+
+
+tabs.forEach(t => t.classList.remove('is-active'));
+tab.classList.add('is-active');
+
+
+tabContents.forEach(c => c.classList.remove('is-active'));
+document.getElementById(`tab-${target}`).classList.add('is-active');
+});
+});
+});
+</script>
+
+
+</body>
+</html>
